@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8"  name="viewport" content="width=device-width, initial-scale=1.0">
   <title>the first time you saw a butterfly</title>
     <style>
     body {
@@ -33,6 +33,19 @@
       display: block;
       margin-top: 8px;
     }
+
+    @media only screen and (max-width: 600px) {
+    body {
+    font-size: 19px;          /* bigger base text on phone */
+    }
+    h1 {
+    font-size: 2.8rem;        /* slightly bigger title */
+    }
+    .link-line,
+    details summary {
+    font-size: 1rem;          /* make your small text more readable */
+    }
+  }
   </style>
 </head>
 <body>
@@ -78,9 +91,9 @@
     <details>
       <summary>fotografias</summary>
         <img src="images/amparo1.1.png" alt="amparo1, Porto">
-        <img src="images/amparo1.2.jpg" alt="amparo2, Porto">
-        <img src="images/amparo1.3.jpg" alt="amparo5, Porto">
-        <img src="images/amparo1.4.jpg" alt="amparo6, Porto">
+        <img src="images/amparo1.2.png" alt="amparo2, Porto">
+        <img src="images/amparo1.3.png" alt="amparo5, Porto">
+        <img src="images/amparo1.4.png" alt="amparo6, Porto">
     </details>
 </p>
 <br>
