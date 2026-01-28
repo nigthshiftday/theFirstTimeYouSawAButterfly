@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"  name="viewport" content="width=device-width, initial-scale=1.0">
   <title>the first time you saw a butterfly</title>
-    <style>
+  <style>
     body {
       margin: 40px;
       background-color: #f7f7f5;
@@ -35,20 +35,95 @@
     }
 
     @media only screen and (max-width: 600px) {
-    body {
-    font-size: 17px;          /* bigger base text on phone */
+      body {
+        font-size: 17px;          /* bigger base text on phone */
+      }
+      h1 {
+        font-size: 2.8rem;        /* slightly bigger title */
+      }
+      .link-line,
+      details summary {
+        font-size: 0.7rem;        /* make your small text more readable */
+      }
     }
-    h1 {
-    font-size: 2.8rem;        /* slightly bigger title */
+
+    /* --- BUTTERFLY LOADER --- */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: #f7f7f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
     }
-    .link-line,
-    details summary {
-    font-size: 0.7rem;          /* make your small text more readable */
+
+    #loader.hidden {
+      opacity: 0;
+      pointer-events: none;
     }
-  }
+
+    .butterfly {
+      width: 60px;
+      height: 60px;
+      position: relative;
+    }
+
+    .wing {
+      position: absolute;
+      width: 30px;
+      height: 40px;
+      background: #ff8cc6;
+      border-radius: 60% 40% 60% 40%;
+      opacity: 0.9;
+    }
+
+    .wing.left {
+      right: 50%;
+      transform-origin: 100% 50%;
+      animation: flap-left 0.6s ease-in-out infinite alternate;
+    }
+
+    .wing.right {
+      left: 50%;
+      transform-origin: 0% 50%;
+      animation: flap-right 0.6s ease-in-out infinite alternate;
+      background: #ffb6d9;
+    }
+
+    .body {
+      position: absolute;
+      left: 50%;
+      top: 10px;
+      width: 6px;
+      height: 40px;
+      margin-left: -3px;
+      background: #333333;
+      border-radius: 3px;
+    }
+
+    @keyframes flap-left {
+      from { transform: rotateY(0deg) translateX(0); }
+      to   { transform: rotateY(40deg) translateX(-2px); }
+    }
+
+    @keyframes flap-right {
+      from { transform: rotateY(0deg) translateX(0); }
+      to   { transform: rotateY(-40deg) translateX(2px); }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Butterfly loader -->
+  <div id="loader">
+    <div class="butterfly">
+      <div class="wing left"></div>
+      <div class="wing right"></div>
+      <div class="body"></div>
+    </div>
+  </div>
 
 <p>
   <i>this is : the first time you saw a butterfly</i>
@@ -119,6 +194,18 @@
     </details>
 </p>
 <br>
+
+<script>
+  // hide loader when page fully loaded
+  window.addEventListener('load', function () {
+    var loader = document.getElementById('loader');
+    loader.classList.add('hidden');
+    // optional: remove from DOM after fade
+    setTimeout(function () {
+      loader.style.display = 'none';
+    }, 600); // slightly longer than CSS transition
+  });
+</script>
 
 </body>
 </html>
