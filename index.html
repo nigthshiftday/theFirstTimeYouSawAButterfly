@@ -56,6 +56,17 @@
       max-width: 200px;
     }
 
+  .side-by-side {
+      display: flex;
+      gap: 20px;        /* space between them */
+      margin: 8px 0;
+    }
+    
+  .side-by-side details {
+      flex: 1;          /* equal width */
+      min-width: 0;     /* allows shrinking */
+    }
+
     @media only screen and (max-width: 600px) {
       body {
         font-size: 17px;          /* bigger base text on phone */
@@ -66,6 +77,10 @@
       .link-line,
       details summary {
         font-size: 0.7rem;        /* make your small text more readable */
+      }
+      .side-by-side {
+        flex-direction: column;  /* stack vertically on phone */
+        gap: 4px;
       }
     }
 
@@ -123,6 +138,7 @@
 <p>
   <i>this is : the first time you saw a butterfly</i>
 </p>
+<div class="side-by-side">
      <span class="link-line">
       <details open>
         <summary>have we ever apoligized to pigeons?</summary>
@@ -169,6 +185,8 @@
           🔊 Unmute
         </button>
       </details>
+    </span>
+</div>
 
   <br><br>
   <br><br>
